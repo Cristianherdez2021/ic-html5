@@ -1,23 +1,17 @@
-name: Ejercicio 2 - Integración continua
+name: Ejercicio 2 - Workflow con checkout
 
 on:
   push:
-    branches:
-      - main
 
 jobs:
-  build:
+  comprobar-repositorio:
     runs-on: ubuntu-latest
-
     steps:
       - name: Descargar repositorio
         uses: actions/checkout@v4
 
-      - name: Mostrar información del sistema
-        run: |
-          echo "Usuario:"
-          whoami
-          echo "Directorio actual:"
-          pwd
-          echo "Contenido del repositorio:"
-          ls -l
+      - name: Mostrar contenido del repositorio
+        run: ls -la
+
+      - name: Mostrar contenido del README
+        run: cat README.md
