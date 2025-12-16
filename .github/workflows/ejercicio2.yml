@@ -1,0 +1,23 @@
+name: Ejercicio 2 - Integración continua
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Mostrar información del sistema
+        run: |
+          echo "Usuario:"
+          whoami
+          echo "Directorio actual:"
+          pwd
+          echo "Contenido del repositorio:"
+          ls -l
